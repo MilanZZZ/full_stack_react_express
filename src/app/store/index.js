@@ -41,6 +41,4 @@ export const store = createStore(
     applyMiddleware(createLogger(), sagaMiddleware)
 );
 
-for(let saga in sagas) {
-    sagaMiddleware.run(sagas[saga])
-}
+sagaMiddleware.run(taskCreationSaga);
