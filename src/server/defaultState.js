@@ -3,12 +3,12 @@ export const defaultState = {
         id:"U1",
         name:"Dev",
        
-        friends:[`U2`]
+        
     },{
         id:"U2",
         name:"C. Eeyo",
         
-        friends:[]
+       
     }],
     groups:[{
         name:"To Do",
@@ -22,6 +22,11 @@ export const defaultState = {
         name:"Done",
         id:"G3",
         owner:"U1"
+    },
+    {
+        name:"Screwed",
+        id:"G4",
+        owner:"U1"
     }
     ],
     tasks:[{
@@ -32,7 +37,7 @@ export const defaultState = {
         isComplete:false,
     },{
         name:"Meet with CTO",
-        id:"T2",
+        id:"T3",
         group:"G1",
         owner:"U1",
         isComplete:true,
@@ -54,13 +59,23 @@ export const defaultState = {
         group:"G3",
         owner:"U1",
         isComplete:false,
+    },
+    {
+        name:"Learning to manage desperation",
+        id:"T6",
+        group:"G4",
+        owner:"U1",
+        isComplete:true,
+
     }],
+
     comments:[{
         owner:"U1",
         id:"C1",
         task:"T1",
         content:"Great work!"
-    }]
+    }],
+
 
 
 };
