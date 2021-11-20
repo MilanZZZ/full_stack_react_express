@@ -24,7 +24,7 @@ export const defaultState = {
         owner:"U1"
     },
     {
-        name:"Screwed",
+        name:"Skewed",
         id:"G4",
         owner:"U1"
     }
@@ -61,7 +61,7 @@ export const defaultState = {
         isComplete:false,
     },
     {
-        name:"Learning to manage desperation",
+        name:"Learning to manage",
         id:"T6",
         group:"G4",
         owner:"U1",

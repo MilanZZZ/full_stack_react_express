@@ -8,7 +8,7 @@ export const Dashboard = ({groups}) => (
     <div>
     <h2>Dashboard</h2>
     {groups.map(group=>(
-        <ConnectedTaskList key={group.id}id={group.id} name={group.name} />))}
+        <ConnectedTaskList key={group.id} id={group.id} name={group.name} />))}
         
     </div>
 ) //() indicates that it's not a function but an object to be returned

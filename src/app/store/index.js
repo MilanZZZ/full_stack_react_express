@@ -5,14 +5,13 @@ import createSagaMiddleware from "redux-saga";
 import { taskCreationSaga } from "./sagas.mock";
 
 const sagaMiddleware = createSagaMiddleware();
-import * as sagas from './sagas.mock';
+//import * as sagas from './sagas.mock';
+import * as sagas from './sagas';
 import * as mutations from './mutations';
 
 export const store = createStore(
-    function reducer(state = defaultState,action){
-    return state;
-    },
-    /*combineReducers({
+    
+    combineReducers({
         tasks(tasks = defaultState.tasks, action){
             switch(action.type){
                 case mutations.CREATE_TASK:
@@ -24,8 +23,20 @@ export const store = createStore(
                        owner: action.ownerID,
                        isComplete: false
                     } ] 
+                case mutations.SET_TASK_COMPLETE:
+                    return tasks.map(task=>{
+                        return(task.id===action.taskID)? {...task,isComplete:action.isComplete} : task; 
+                    });
+                case mutations.SET_TASK_NAME:
+                    return tasks.map(task=>{
+                        return(task.id===action.taskID) ? {...task,name:action.name} : task; 
+                    });
+                    case mutations.SET_TASK_GROUP:
+                        return tasks.map(task=>{
+                            return(task.id===action.taskID) ? {...task,group:action.groupID} : task; 
+                        });
                 }
-                console.log(action.groupID);
+                
                 return tasks;
         },
         comments(comments = defaultState.comments){
@@ -37,8 +48,10 @@ export const store = createStore(
         users(users = defaultState.users){
             return users;
         }
-    }), */
+    }), 
     applyMiddleware(createLogger(), sagaMiddleware)
 );
 
-sagaMiddleware.run(taskCreationSaga);
+for(let saga in sagas){
+sagaMiddleware.run(sagas[saga]);
+}
